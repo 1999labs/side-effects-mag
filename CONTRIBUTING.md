@@ -88,9 +88,9 @@ All review happens in PR comments. The thread is public from the moment you open
 
 ## Compensation
 
-We don't pay writers yet. We credit prominently — author byline on the article, author retained in the contributor graph permanently, full freedom to republish elsewhere.
+We don't pay writers. We do credit prominently — author byline on the article, author retained in the contributor graph permanently, full freedom to republish elsewhere.
 
-This will change. When it does, the policy will be stated here and pitches accepted after that date will be paid at the prevailing rate.
+This may change. If it does, the policy will be stated here.
 
 ## Rights and licensing
 
