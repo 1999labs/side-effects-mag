@@ -1,4 +1,4 @@
-# ◈ Side Effects
+# Side Effects
 
 > SFX of an agentic internet.
 
