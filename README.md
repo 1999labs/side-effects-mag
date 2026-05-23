@@ -1,6 +1,6 @@
 # Side Effects Magazine
 
-Writing about the second-order consequences of technology, markets, AI, and internet culture — the things that happen because of change, not the change itself. Think of it as the fine print on progress.
+Writing about the second-order consequences of technology, markets, AI, and internet culture. The things that happen because of change, not the change itself. Think of it as the fine print on progress.
 
 A newsletter that lives as a GitHub repo, a public JSON API, and a CLI. No platform, no signup wall, no tracking. The repo is the product.
 
