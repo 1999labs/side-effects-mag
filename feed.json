@@ -1,0 +1,23 @@
+{
+  "title": "Side Effects",
+  "description": "SFX of an agentic internet",
+  "author": "Side Effects",
+  "canonical_url": "https://raw.githubusercontent.com/knownquantity/side-effects/main/feed.json",
+  "subscribe_url": "https://buttondown.email/sideeffects",
+  "cli": "npx side-effects",
+  "updated": "2026-05-23",
+  "version": 1,
+  "articles": [
+    {
+      "id": 1,
+      "title": "This Newsletter Is an API",
+      "slug": "001-this-newsletter-is-an-api",
+      "published": "2026-05-23",
+      "tags": ["meta", "agents", "infrastructure"],
+      "summary": "Why Side Effects ships as a GitHub repo, a JSON API, and a CLI — and what that says about publishing for an agentic internet.",
+      "read_time": "3 min",
+      "version": 1,
+      "canonical_url": "https://raw.githubusercontent.com/knownquantity/side-effects/main/articles/001-this-newsletter-is-an-api.md"
+    }
+  ]
+}
