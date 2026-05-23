@@ -1,4 +1,4 @@
-## side-effects
+## side-effects-mag
 
 > Side effects of an agentic internet.
 
