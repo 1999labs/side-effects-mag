@@ -4,7 +4,7 @@
 
 ---
 
-# An Open-Source Magazine
+# An Open-Source Publication
 
 Every new technology generates two conversations. The first is what it can do. The second is what follows. This magazine is for the second one.
 
