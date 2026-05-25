@@ -1,0 +1,47 @@
+name: Draft newsletter on article merge
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  draft:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find newly added article
+        id: article
+        run: |
+          added=$(git diff --name-only --diff-filter=A \
+            ${{ github.event.pull_request.base.sha }} \
+            ${{ github.event.pull_request.merge_commit_sha }} \
+            -- 'articles/*.md' | head -1)
+
+          if [ -z "$added" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          title=$(grep -m1 '^# ' "$added" | sed 's/^# //')
+          url="https://github.com/${{ github.repository }}/blob/main/$added"
+
+          echo "title=$title" >> "$GITHUB_OUTPUT"
+          echo "url=$url"     >> "$GITHUB_OUTPUT"
+
+      - name: Create Buttondown draft
+        if: steps.article.outputs.skip != 'true'
+        env:
+          BD_TOKEN: ${{ secrets.BUTTONDOWN_API_KEY }}
+          SUBJECT:  ${{ steps.article.outputs.title }}
+          URL:      ${{ steps.article.outputs.url }}
+        run: |
+          jq -n --arg s "$SUBJECT" --arg u "$URL" \
+            '{subject: $s, body: "Read the new issue: \($u)", status: "draft"}' \
+          | curl -fsS -X POST https://api.buttondown.email/v1/emails \
+              -H "Authorization: Token $BD_TOKEN" \
+              -H "Content-Type: application/json" \
+              --data @-
