@@ -1,6 +1,6 @@
 # Side Effects Magazine
 
-![side-fx-mag logo](sfx.png)
+![side-fx-mag logo](sidefxmag.png)
 
 An open-source publication exploring frontier technologies and their cultural n^th-order side effects.
 
