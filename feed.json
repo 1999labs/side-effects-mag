@@ -5,7 +5,7 @@
   "canonical_url": "https://raw.githubusercontent.com/1999labs/side-effects-mag/main/feed.json",
   "subscribe_url": "https://buttondown.email/sideeffects",
   "cli": "npx side-effects-mag",
-  "updated": "2026-05-24",
+  "updated": "2026-05-25",
   "version": 1,
   "articles": [
     {
@@ -29,6 +29,17 @@
       "read_time": "6 min",
       "version": 1,
       "canonical_url": "https://raw.githubusercontent.com/1999labs/side-effects-mag/main/articles/002-the-cdn-tax.md"
+    },
+    {
+      "id": 3,
+      "title": "Calling It AI",
+      "slug": "003-calling-it-ai",
+      "published": "2026-05-25",
+      "tags": ["AI", "Art", "Internet Culture"],
+      "summary": "The SHL0MS Monet prank exposed the engine behind today's AI art discourse: nobody can actually tell, but everyone is auditioning to be the person who can.",
+      "read_time": "5 min",
+      "version": 1,
+      "canonical_url": "https://raw.githubusercontent.com/1999labs/side-effects-mag/main/articles/003-calling-it-ai.md"
     }
   ]
 }

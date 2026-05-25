@@ -93,6 +93,7 @@ npx side-effects-mag api
 | --- | -------------------------------------------------------------------- | ---------- | ------------------------------- |
 | 001 | [An Open-Source Magazine](./articles/001-an-open-source-magazine.md) | 2026-05-23 | Technology, Culture |
 | 002 | [The CDN Tax](./articles/002-the-cdn-tax.md) | 2026-05-23 | Publishing, Economics, Content |
+| 003 | [Calling It AI](./articles/003-calling-it-ai.md) | 2026-05-25 | AI, Art, Internet Culture |
 
 ## Contribute 
 
