@@ -9,19 +9,15 @@
 const FEED_URL = "https://raw.githubusercontent.com/1999labs/side-effects-mag/main/feed.json";
 const REPO_URL = "https://github.com/1999labs/side-effects-mag";
 
-// One pop-art accent per issue. Newest issue takes the yellow "headline" slot;
-// older issues rotate through the rest. fg is comic-ink black on the bright
-// fields, cream on the dark blue/purple. Chosen for contrast on bg.
-const ACCENTS = [
-  { bg: "#ffd400", fg: "#111111" }, // yellow — latest "headline"
-  { bg: "#ff2b2b", fg: "#111111" }, // red
-  { bg: "#00b3e6", fg: "#111111" }, // cyan
-  { bg: "#ff2d8f", fg: "#111111" }, // hot pink
-  { bg: "#1657d0", fg: "#fbf3e2" }, // cobalt blue
-  { bg: "#ff7a00", fg: "#111111" }, // orange
-  { bg: "#28c24b", fg: "#111111" }, // green
-  { bg: "#8e2de2", fg: "#fbf3e2" }, // purple
+// Two-color scheme. Every panel down the stack swaps which is background and
+// which is text, so the colors alternate back and forth.
+const CYAN = "#00b2e2";
+const YELLOW = "#f7ea00";
+const TWO = [
+  { bg: YELLOW, fg: CYAN },
+  { bg: CYAN, fg: YELLOW },
 ];
+const colorAt = (i) => TWO[i % 2];
 
 const stack = document.getElementById("stack");
 const reader = document.getElementById("reader");
@@ -69,29 +65,32 @@ function render(issues) {
   stack.removeAttribute("aria-busy");
   stack.innerHTML = "";
 
-  stack.appendChild(masthead());
-
-  issues.forEach((a, i) => {
-    const accent = ACCENTS[i % ACCENTS.length];
-    stack.appendChild(issuePanel(a, accent));
-  });
-
-  stack.appendChild(footer());
+  // One running index across every panel so the two colors strictly alternate.
+  let idx = 0;
+  stack.appendChild(masthead(colorAt(idx++)));
+  issues.forEach((a) => stack.appendChild(issuePanel(a, colorAt(idx++))));
+  stack.appendChild(footer(colorAt(idx++)));
 }
 
-function masthead() {
+function paint(el, color) {
+  el.style.background = color.bg;
+  el.style.color = color.fg;
+  return el;
+}
+
+function masthead(color) {
   // First slide: just the wordmark (top-left) and the scroll-cue arrow.
   const inner = `
     <div class="panel__inner">
       <h1 class="masthead__title">Side Effects Magazine</h1>
       <span class="panel__arrow" aria-hidden="true">&darr;</span>
     </div>`;
-  const el = panelEl("panel panel--masthead", inner);
+  const el = paint(panelEl("panel panel--masthead", inner), color);
   el.id = "issues";
   return el;
 }
 
-function issuePanel(a, accent) {
+function issuePanel(a, color) {
   const no = String(a.id).padStart(3, "0");
   const tags = (a.tags || [])
     .map((t) => `<span class="label">${escapeHtml(t)}</span>`)
@@ -122,58 +121,44 @@ function issuePanel(a, accent) {
   const el = document.createElement("a");
   el.className = "panel panel--issue";
   el.href = `#read/${encodeURIComponent(a.slug)}`;
-  el.style.background = accent.bg;
-  el.style.color = accent.fg;
   el.setAttribute("aria-label", `Read issue ${no}: ${a.title}`);
   el.innerHTML = inner;
-  return el;
+  return paint(el, color);
 }
 
-function footer() {
-  const subscribe = (FEED && FEED.subscribe_url) || "#";
+function footer(color) {
   const cli = (FEED && FEED.cli) || "npx side-effects-mag";
   const inner = `
     <div class="footer__inner">
-      <p class="footer__lead">The repo is the magazine.</p>
       <div class="footer__grid">
         <div class="footer__col">
-          <h2>Read</h2>
-          <ul>
-            <li><code>${escapeHtml(cli)} latest</code></li>
-            <li><code>${escapeHtml(cli)} read 001</code></li>
-            <li><a href="${escapeAttr(
-              REPO_URL
-            )}/tree/main/articles"><span class="arr">&rarr;</span> Browse /articles</a></li>
-          </ul>
+          <h2>About</h2>
+          <p class="footer__about">An open-source publication exploring frontier technologies and cultural n<sup>th</sup>-order side effects.</p>
         </div>
         <div class="footer__col">
           <h2>Subscribe</h2>
           <ul>
             <li><code>${escapeHtml(cli)} subscribe</code></li>
-            <li><a href="${escapeAttr(
-              subscribe
-            )}"><span class="arr">&rarr;</span> Email signup</a></li>
+          </ul>
+          <h2>Read</h2>
+          <ul>
+            <li><code>${escapeHtml(cli)} latest</code></li>
+            <li><code>${escapeHtml(cli)} read 001</code></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h2>API</h2>
+          <h2>Inquiries</h2>
           <ul>
-            <li><a href="${escapeAttr(
-              FEED_URL
-            )}"><span class="arr">&rarr;</span> feed.json</a></li>
-            <li><a href="${escapeAttr(
-              REPO_URL
-            )}"><span class="arr">&rarr;</span> Source on GitHub</a></li>
-            <li><code>no auth · no tracking</code></li>
+            <li><a href="mailto:noah@1999.wtf">noah@1999.wtf</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer__bottom">
-        <span>Side Effects Magazine</span>
-        <span>${escapeHtml((FEED && FEED.updated) || "")}</span>
+      <div class="footer__foot">
+        <p class="footer__wordmark">Side Effects Magazine</p>
+        <span class="footer__updated">${escapeHtml((FEED && FEED.updated) || "")}</span>
       </div>
     </div>`;
-  return panelEl("panel panel--footer", inner);
+  return paint(panelEl("panel panel--footer", inner), color);
 }
 
 function panelEl(className, html) {

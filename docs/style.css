@@ -17,7 +17,7 @@
   --paper: #fbf3e2;
   --ink:   #111111;
   --ink-soft: #555049;
-  --signal: #ec1c5a; /* pop red-pink — accent for links/hover/marks */
+  --signal: #00b2e2; /* cyan — reader link accent (on-palette) */
 
   --max:   1100px;
   --read:  44rem;
@@ -34,7 +34,7 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background: var(--ink); /* shows beneath the last sticky panel */
+  background: #00b2e2; /* shows beneath the last sticky panel */
   color: var(--ink);
   font-family: var(--font-display);
   font-size: clamp(0.79rem, 0.68rem + 0.38vw, 1.09rem);
@@ -95,7 +95,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ── Masthead (top panel) ─────────────────────────────────────────────── */
 
-.panel--masthead { background: var(--paper); color: var(--ink); }
+.panel--masthead { /* bg + fg set inline (two-color alternation) */ }
 
 /* First slide: just the wordmark, top-left. The flex column in .panel__inner
    keeps it at the top; .panel__arrow stays pinned to the bottom. */
@@ -118,7 +118,7 @@ a { color: inherit; text-decoration: none; }
   gap: clamp(0.75rem, 2vw, 1.5rem);
   flex-wrap: wrap;
   align-items: baseline;
-  opacity: 0.85;
+  opacity: 1;
 }
 .issue__no { font-size: 0.54rem; }
 .issue__tags { display: flex; gap: 0.6rem; flex-wrap: wrap; }
@@ -141,7 +141,7 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(0.79rem, 0.75rem + 0.38vw, 1.13rem);
   line-height: 1.3;
   font-weight: 500;
-  opacity: 0.92;
+  opacity: 1;
 }
 
 .panel--issue:hover .panel__arrow,
@@ -149,31 +149,21 @@ a { color: inherit; text-decoration: none; }
 .panel--issue:hover .issue__title,
 .panel--issue:focus-visible .issue__title { transform: translateX(0.12em); }
 
-.panel--issue:focus-visible { outline: 3px solid var(--paper); outline-offset: -8px; }
+.panel--issue:focus-visible { outline: 3px solid currentColor; outline-offset: -8px; }
 
 .issue__cta {
   display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem;
   margin-top: auto;
 }
-.issue__read { font-family: var(--font-mono); font-size: 0.54rem; text-transform: uppercase; letter-spacing: 0.14em; opacity: 0.85; }
+.issue__read { font-family: var(--font-mono); font-size: 0.54rem; text-transform: uppercase; letter-spacing: 0.14em; opacity: 1; }
 
 /* ── Footer panel ─────────────────────────────────────────────────────── */
 
-.panel--footer { background: var(--ink); color: var(--paper); }
+.panel--footer { /* bg + fg set inline (two-color alternation) */ }
 
 .footer__inner {
   width: 100%; max-width: var(--max); margin: 0 auto;
   flex: 1; display: flex; flex-direction: column;
-}
-
-.footer__lead {
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: clamp(1.31rem, 4.5vw, 3rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  margin: 0 0 clamp(2rem, 6vh, 4rem);
-  max-width: 18ch;
 }
 
 .footer__grid {
@@ -188,22 +178,29 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-mono);
   font-size: 0.54rem; font-weight: 600;
   text-transform: uppercase; letter-spacing: 0.14em;
-  margin: 0 0 1rem; opacity: 0.6;
+  margin: 0 0 1rem;
 }
+.footer__col ul + h2 { margin-top: 1.75rem; } /* space before "Read" in the middle column */
 .footer__col ul { list-style: none; margin: 0; padding: 0; }
 .footer__col li { margin: 0 0 0.6rem; }
+.footer__about { margin: 0; max-width: 26ch; font-size: 0.79rem; line-height: 1.3; }
+.footer__about sup { font-size: 0.62em; }
 .footer__col a, .footer__col code { font-size: 0.79rem; }
-.footer__col a { display: inline-flex; align-items: center; gap: 0.4rem; }
-.footer__col a .arr { transition: transform 0.15s ease-in-out; display: inline-block; }
-.footer__col a:hover { color: var(--signal); }
-.footer__col a:hover .arr { transform: translateX(0.3em); }
-.footer__col code { font-family: var(--font-mono); color: var(--paper); }
+.footer__col code { font-family: var(--font-mono); color: inherit; }
+.footer__col a:hover { text-decoration: underline; }
 
-.footer__bottom {
+.footer__foot {
   margin-top: auto; padding-top: clamp(2rem, 5vh, 3rem);
-  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-  font-family: var(--font-mono); font-size: 0.54rem; letter-spacing: 0.08em;
-  text-transform: uppercase; opacity: 0.6;
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 1rem; flex-wrap: wrap;
+}
+.footer__wordmark {
+  margin: 0; font-weight: 700; text-transform: uppercase;
+  font-size: clamp(1.31rem, 4.5vw, 3rem); line-height: 0.95; letter-spacing: -0.02em;
+}
+.footer__updated {
+  font-family: var(--font-mono); font-size: 0.54rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
 }
 
 /* ── Reader overlay ───────────────────────────────────────────────────── */
