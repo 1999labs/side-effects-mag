@@ -9,16 +9,18 @@
 const FEED_URL = "https://raw.githubusercontent.com/1999labs/side-effects-mag/main/feed.json";
 const REPO_URL = "https://github.com/1999labs/side-effects-mag";
 
-// One muted accent per issue. Newest issue takes the ochre "headline" slot;
-// older issues rotate through the rest. fg is chosen for contrast on bg.
+// One pop-art accent per issue. Newest issue takes the yellow "headline" slot;
+// older issues rotate through the rest. fg is comic-ink black on the bright
+// fields, cream on the dark blue/purple. Chosen for contrast on bg.
 const ACCENTS = [
-  { bg: "#b4915a", fg: "#1a1610" }, // ochre / gold — latest
-  { bg: "#2f3e46", fg: "#f3f0e9" }, // slate
-  { bg: "#7c4a36", fg: "#f3f0e9" }, // rust
-  { bg: "#3f4a2f", fg: "#f3f0e9" }, // moss
-  { bg: "#39395a", fg: "#f3f0e9" }, // indigo
-  { bg: "#5b3a45", fg: "#f3f0e9" }, // plum
-  { bg: "#35524a", fg: "#f3f0e9" }, // pine
+  { bg: "#ffd400", fg: "#111111" }, // yellow — latest "headline"
+  { bg: "#ff2b2b", fg: "#111111" }, // red
+  { bg: "#00b3e6", fg: "#111111" }, // cyan
+  { bg: "#ff2d8f", fg: "#111111" }, // hot pink
+  { bg: "#1657d0", fg: "#fbf3e2" }, // cobalt blue
+  { bg: "#ff7a00", fg: "#111111" }, // orange
+  { bg: "#28c24b", fg: "#111111" }, // green
+  { bg: "#8e2de2", fg: "#fbf3e2" }, // purple
 ];
 
 const TAGLINE =

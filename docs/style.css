@@ -1,12 +1,12 @@
 /* Side Effects Magazine — sticky-stack editorial layout.
    Structure mirrors the color-blocked, full-viewport "card stack" reveal;
-   palette is a sober ink/paper + one muted accent per issue. */
+   palette is pop-art: cream paper, comic-ink black, one saturated accent per issue. */
 
 :root {
-  --paper: #f3f0e9;
-  --ink:   #16130f;
-  --ink-soft: #4a443c;
-  --signal: #b5482e; /* terracotta — sparing accent for hover/marks */
+  --paper: #fbf3e2;
+  --ink:   #111111;
+  --ink-soft: #555049;
+  --signal: #ec1c5a; /* pop red-pink — accent for links/hover/marks */
 
   --max:   1100px;
   --read:  44rem;
