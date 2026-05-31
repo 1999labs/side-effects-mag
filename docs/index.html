@@ -16,6 +16,7 @@
       --bg: #adf7f7;
       --fg: #0b3a3a;
       --accent: #075e5e;
+      --spine: clamp(2.2rem, 5vw, 3.5rem);
       --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, "Cascadia Mono", Consolas, "Liberation Mono", monospace;
     }
     * { box-sizing: border-box; }
@@ -25,10 +26,34 @@
       font-size: clamp(13px, 12px + 0.2vw, 15px);
       line-height: 1.55;
       padding: clamp(1rem, 3vw, 2.75rem);
+      padding-left: calc(var(--spine) + clamp(1rem, 3vw, 1.75rem));
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
     #screen { max-width: 880px; margin: 0 auto; }
+
+    /* vertical wordmark running up the left edge */
+    .spine {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: var(--spine);
+      border-right: 1px solid color-mix(in srgb, var(--fg) 28%, transparent);
+      background: var(--bg);
+      z-index: 5;
+      pointer-events: none; /* clicks fall through to focus the prompt */
+    }
+    .spine span {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      white-space: nowrap;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.42em;
+      font-size: clamp(0.72rem, 0.55rem + 0.5vw, 1rem);
+      color: var(--fg);
+    }
+    @media (max-height: 26rem) { .spine span { letter-spacing: 0.2em; font-size: 0.7rem; } }
 
     #out, .line { white-space: pre-wrap; overflow-wrap: anywhere; }
     .blk { margin: 0; }
@@ -69,6 +94,7 @@
   </style>
 </head>
 <body>
+  <div class="spine" aria-hidden="true"><span>Side Effects Magazine</span></div>
   <main id="screen">
     <div id="out"></div>
     <form id="form" class="line" autocomplete="off">
@@ -95,7 +121,7 @@
   boot();
 
   async function boot() {
-    print('<span class="logo">SIDE EFFECTS // MAGAZINE</span>\n<span class="dim">an open-source publication — terminal client v1</span>\n');
+    print('<span class="dim">an open-source publication — terminal client v1</span>\n');
     try {
       const res = await fetch(FEED_URL, { cache: "no-cache" });
       if (!res.ok) throw new Error("feed.json " + res.status);
