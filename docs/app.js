@@ -141,16 +141,8 @@ function masthead(color) {
 
 function issuePanel(a, color) {
   const no = String(a.id).padStart(3, "0");
-  const tags = (a.tags || [])
-    .map((t) => `<span class="label">${escapeHtml(t)}</span>`)
-    .join("");
   const inner = `
     <div class="panel__inner">
-      <div class="issue__meta">
-        <span class="label issue__no">Issue ${no}</span>
-        <span class="label">${escapeHtml(a.published || "")}</span>
-        <span class="issue__tags">${tags}</span>
-      </div>
       <div class="issue__center">
         <h2 class="issue__title">${escapeHtml(a.title)}</h2>
         ${
