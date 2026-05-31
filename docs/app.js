@@ -47,11 +47,12 @@ async function init() {
     return;
   }
 
-  // newest first
-  const issues = [...(FEED.articles || [])].sort(
-    (a, b) => (b.id || 0) - (a.id || 0)
-  );
-  issues.forEach((a) => BY_SLUG.set(a.slug, a));
+  // newest first. One article is hidden from the stack but still reachable by
+  // direct #read link, so it stays in BY_SLUG.
+  const HIDDEN = new Set(["001-an-open-source-magazine"]);
+  const all = [...(FEED.articles || [])].sort((a, b) => (b.id || 0) - (a.id || 0));
+  all.forEach((a) => BY_SLUG.set(a.slug, a));
+  const issues = all.filter((a) => !HIDDEN.has(a.slug));
 
   render(issues);
   window.addEventListener("hashchange", route);
@@ -131,7 +132,7 @@ function masthead(color) {
   // First slide: just the wordmark (top-left) and the scroll-cue arrow.
   const inner = `
     <div class="panel__inner">
-      <h1 class="masthead__title">Side Effects Magazine</h1>
+      <h1 class="masthead__title">Side Effects<br>Magazine</h1>
       <span class="panel__arrow" aria-hidden="true">&darr;</span>
     </div>`;
   const el = paint(panelEl("panel panel--masthead", inner), color);
@@ -175,7 +176,7 @@ function footer(color) {
       <div class="footer__grid">
         <div class="footer__col">
           <h2>About</h2>
-          <p class="footer__about">An open-source publication exploring frontier technologies and cultural n<sup>th</sup>-order side effects.</p>
+          <p class="footer__about">An open-source publication exploring frontier technologies and cultural n<sup>th</sup>-order side effects. Published online and via a public GitHub repo, with queryable content exposed over JSON endpoints.</p>
         </div>
         <div class="footer__col">
           <h2>Subscribe</h2>
