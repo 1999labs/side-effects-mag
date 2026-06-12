@@ -12,7 +12,7 @@ An open-source publication exploring frontier technologies and their cultural n^
 npx side-effects-mag subscribe
 ```
 
-Or via email: [buttondown.email/sideeffects](https://buttondown.email/sideeffects)
+Or via email: [buttondown.com/side-effects-mag](https://buttondown.com/side-effects-mag)
 
 ## Read
 
@@ -51,7 +51,7 @@ npx side-effects-mag api
   "description": "",
   "author": "Side Effects Magazine",
   "canonical_url": "https://raw.githubusercontent.com/1999labs/side-effects-mag/main/feed.json",
-  "subscribe_url": "https://buttondown.email/sideeffects",
+  "subscribe_url": "https://buttondown.com/side-effects-mag",
   "cli": "npx side-effects-mag",
   "updated": "2026-05-23",
   "version": 1,

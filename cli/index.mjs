@@ -6,7 +6,7 @@ import fetch from 'node-fetch'
 
 const GITHUB_USERNAME = '1999labs'
 const REPO = 'side-effects-mag'
-const BUTTONDOWN_URL = 'https://buttondown.email/sideeffects'
+const BUTTONDOWN_URL = 'https://buttondown.com/side-effects-mag'
 const SUBSCRIBE_API = 'https://sideeffects-api.vercel.app/api/subscribe'
 
 const RAW_BASE = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO}/main`

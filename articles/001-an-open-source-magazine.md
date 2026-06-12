@@ -35,7 +35,7 @@ npx side-effects-mag latest
 npx side-effects-mag read 001
 ```
 
-By email: `npx side-effects-mag subscribe`, or the [signup page](https://buttondown.email/sideeffects).
+By email: `npx side-effects-mag subscribe`, or the [signup page](https://buttondown.com/side-effects-mag).
 
 By API: `https://raw.githubusercontent.com/1999labs/side-effects-mag/main/feed.json`. No auth, no rate limit beyond GitHub's, no tracking.
 
