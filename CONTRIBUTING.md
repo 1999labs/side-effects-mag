@@ -14,7 +14,7 @@ We accept both. Pitching first is lower-friction for everyone if you're unsure.
 
 ## What we look for
 
-Side Effects is about the *second-order* consequences of technology and culture — the things that follow from the things. Strong pitches share a few traits:
+Side Effects is about the *second-order* consequences of technology and culture. Strong pitches share a few traits:
 
 - **A specific, falsifiable claim.** "X is changing" is not enough. "X is changing in this way, and here's what becomes true (or stops being true) as a result" is better.
 - **First-hand evidence or original analysis.** Pieces that recombine other people's reporting without adding a new lens are not what we publish. Pieces that connect dots no one's connected yet, do something quantitative no one's done, or report from inside a system most readers don't have access to — that's the bar.
