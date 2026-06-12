@@ -22,7 +22,7 @@ This is the inversion: today's *tax on being crawled* becomes tomorrow's *fee fo
 
 ## Who loses in the transition
 
-The publishers least equipped to navigate either regime — the current defensive one or the coming inclusion-fee one — are independents in the middle. Too small to negotiate bilateral data deals the way Reddit, Stack Overflow, the Associated Press, and the major newspapers have already started doing. Too established to operate at the truly-zero-cost margins of a personal blog. Too dependent on ad or sponsorship revenue to absorb the bandwidth costs of being indexed for free. They get squeezed by the CDN tax now and excluded by the Discovery Tax later.
+The publishers least equipped to navigate either regime (the current defensive one or the coming inclusion-fee one), are independents in the middle. Too small to negotiate bilateral data deals the way Reddit, Stack Overflow, the Associated Press, and the major newspapers have already started doing. Too established to operate at the truly-zero-cost margins of a personal blog. Too dependent on ad or sponsorship revenue to absorb the bandwidth costs of being indexed for free. They get squeezed by the CDN tax now and excluded by the Discovery Tax later.
 
 The bilateral deals are the tell. They are not happening between AI companies and the open web. They are happening between AI companies and the dozen or so publishers whose archives are too large, too verifiable, or too legally aggressive to ignore. Reddit's reported $60M/year arrangement with Google is the shape of the future for that tier. The shape of the future for everyone else is to be modeled as ambient signal.
 
@@ -34,7 +34,7 @@ What survives, then, is not *the publishers who were right about AI*. It is the 
 
 3. **Direct-relationship publishers.** Newsletters and subscriber-only publications where the reader's relationship is with the writer, not with an algorithm. The agent layer cannot intermediate this relationship. It cannot summarize a piece you have already read in your own inbox. Email turns out to be the medium most defended against being abstracted by an agent, which is also why it is having a renaissance no one fully accounts for.
 
-What does not survive at scale: the ad-funded open web in the middle tier. Tens of thousands of independent publishers between *personal blog* and *media company* are being slowly disadvantaged by two structural forces in series - the CDN tax now, the Discovery Tax later — and the transitional years are 2026–2028. By the end of that window, the publications that still exist at that scale will mostly be the ones that figured out how to fit one of the three survivor shapes above. The rest will have folded or consolidated or gone behind hard paywalls that work for some categories of publication and not for others.
+What does not survive at scale: the ad-funded open web in the middle tier. Tens of thousands of independent publishers between *personal blog* and *media company* are being slowly disadvantaged by two structural forces in series: the CDN tax now, and the Discovery Tax later, and the transitional years are 2026–2028. By the end of that window, the publications that still exist at that scale will mostly be the ones that figured out how to fit one of the three survivor shapes above. The rest will have folded or consolidated or gone behind hard paywalls that work for some categories of publication and not for others.
 
 ## The falsifiable part
 
